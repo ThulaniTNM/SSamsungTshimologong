@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to our Survey Application, please select one of the two options below</h2>
+<div>
+    @Html.ActionLink( "Take Survey", "TakeSurvey", null, new { @class = "btn btn-primary", @role = "button" } )
+</div>
+<hr />
+
+<div>
+    @Html.ActionLink( "View Surveys", "ViewSurvey", null, new { @class = "btn btn-primary", @role = "button" } )
+</div>

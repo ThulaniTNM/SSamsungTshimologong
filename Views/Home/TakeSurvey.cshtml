@@ -1,0 +1,155 @@
+﻿@model Phephi.Models.PersonModel
+
+@{
+    ViewBag.Title = "Index";
+    string keyValue ="";
+}
+
+<h2>Take Suvey</h2>
+
+@using(Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Person Details</h4>
+        <hr />
+        @Html.ValidationSummary( true, "", new { @class = "text-danger" } )
+        <div class="form-group">
+            @Html.LabelFor( model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.EditorFor( model => model.Surname, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.ValidationMessageFor( model => model.Surname, "", new { @class = "text-danger" } )
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.EditorFor( model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.ValidationMessageFor( model => model.FirstName, "", new { @class = "text-danger" } )
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.contact, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.EditorFor( model => model.contact, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.ValidationMessageFor( model => model.contact, "", new { @class = "text-danger" } )
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.EditorFor( model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.ValidationMessageFor( model => model.DateOfBirth, "", new { @class = "text-danger" } )
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.EditorFor( model => model.Age, new { htmlAttributes = new { @class = "form-control" } } )
+                @Html.ValidationMessageFor( model => model.Age, "", new { @class = "text-danger" } )
+            </div>
+        </div>
+
+        <h4>What is your favourite food?(You can choose more than 1 answer)</h4>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.Pizza, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.Pizza, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.Pasta, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.Pasta, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.PapAndWors, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.PapAndWors, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.ChickenStirFry, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.ChickenStirFry, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.BeefStirFry, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.BeefStirFry, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.EditorFor( model => model.Other, new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            @Html.LabelFor( model => model.Other, htmlAttributes: new { @class = "control-label col-md-2" } )
+        </div>
+
+        <h4>On a scale of 1 to 5 indicate whether you strongly agree to strongly disagree</h4>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        Strongly Agree
+                        (1)
+                    </th>
+
+                    <th>
+                        Agree
+                        (2)
+                    </th>
+
+                    <th>
+                        Neutral
+                        (3)
+                    </th>
+
+                    <th>
+                        Disagree
+                        (4)
+                    </th>
+
+                    <th>
+                        Strongly disagree
+                        (5)
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for(int i = 0; i < 4; i++) {
+                    <tr>
+                        <td>@Model.likesDisplay[i]</td>
+                        @for(int k = 1; k < 6; k++) {
+                             keyValue =Model.keys[i];
+                            <td>@Html.RadioButton(keyValue,k)</td>
+                        }
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+

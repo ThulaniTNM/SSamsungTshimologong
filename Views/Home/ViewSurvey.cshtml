@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ViewSurvey";
+}
+
+<h2>View Survey Results</h2>
+<hr />
+<dt>
+    @Html.Label( "TotalNumberOfSurvey" ) : @Html.DisplayText( "TotalNumberOfSurvey" )
+</dt>
+
+<dt>
+    @Html.Label( "AverageAge" ) : @Html.DisplayText( "AverageAge" )
+</dt>
+
+<dt>
+    @Html.Label( "TotalNumberOfSurvey" ) : @Html.DisplayText( "TotalNumberOfSurvey" )
+</dt>
+
+<dt>
+    @Html.Label( "MaxAge" ) : @Html.DisplayText( "MaxAge" )
+</dt>
+
+<dt>
+    @Html.Label( "MinAge" ) : @Html.DisplayText( "MinAge" )
+</dt>
+
+<dt>
+    @Html.Label( "PizzaPercentage" ) : @Html.DisplayText( "PizzaPercentage" )
+</dt>
+
+<dt>
+    @Html.Label( "PastaPercentage" ) : @Html.DisplayText( "PastaPercentage" )
+</dt>
+
+<dt>
+    @Html.Label( "PapPercentage" ) : @Html.DisplayText( "PapPercentage" )
+</dt>
+
+<dt>
+    @Html.Label( "WatchMoviesPercentage" ) : @Html.DisplayText( "WatchMoviesPercentage" )
+</dt>
+
+<dt>
+    @Html.Label( "WatchTVPercentage" ) : @Html.DisplayText( "WatchTVPercentage" )
+</dt>
+
+<dt>
+    @Html.Label( "ListenRadioPercentage" ) : @Html.DisplayText( "ListenRadioPercentage" )
+</dt>
+
+<hr />
+<div>
+    @Html.ActionLink( "OK", "Index", null, new { @class = "btn btn-primary", @role = "button" } )
+</div>
